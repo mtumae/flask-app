@@ -43,7 +43,7 @@ def signin():
 @socketio.on('message')
 def handlemessage(data):
     print("Current chats: ", data)
-    emit("message", [data], boradcast=True)
+    socketio.emit("message", [data])
   
 
 @socketio.on('connect')
