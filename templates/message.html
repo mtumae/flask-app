@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat room</title>
 </head>
+
+<style>
+    input{
+        width: 80%;
+        padding:10px;
+
+    }
+</style>
 <body>
-    <input id="msg" name="msg" placeholder="enter a message" type="text"/>
+    <input id="msg" name="msg" placeholder="Enter a message..." type="text"/>
     <button id="send">Send</button>
-
-
     <div id="chat">
         
     </div>
@@ -24,6 +30,12 @@
     // socket.on('connect', function() {
     //     socket.emit('chat', {data: 'Im connected!'});
     // });
+
+
+    function sendmessage(data){
+        console.log("sending message...")
+        socket.emit('message', document.getElementById('msg').value)
+    }
 
     document.getElementById('msg').addEventListener('keyup', function(event){
         if(event.key=="Enter"){
